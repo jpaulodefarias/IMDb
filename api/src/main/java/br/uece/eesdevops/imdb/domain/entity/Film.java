@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "film", schema = "public")
+@Table(name = "film")
 public class Film {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="id")
-    private Integer id;
+	@GeneratedValue
+    private int id;
 
     @Column(nullable = false)
     private String title;
@@ -33,11 +33,11 @@ public class Film {
     @Column(nullable = true)
     private String poster;
 
-    public Integer getId() {
+	public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -62,7 +62,7 @@ public class Film {
     public void setYear(String year) {
         this.year = year;
     }
-    
+
     public String getProducers() {
         return producers;
     }
@@ -81,8 +81,8 @@ public class Film {
     public String getPoster() {
         return poster;
     }
-    
+
     public void setPoster(String poster) {
         this.poster = poster;
-    } 
+    }
 }
