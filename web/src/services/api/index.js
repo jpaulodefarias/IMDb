@@ -7,7 +7,7 @@ const film = {
 
 const evaluation = {
 	list: () => client.get("/evaluation"),
-	add: evaluation => client.post("/film", evaluation)
+	add: evaluation => client.post("/evaluation", evaluation)
 };
 
 export default {
