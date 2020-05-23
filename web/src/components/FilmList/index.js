@@ -6,7 +6,7 @@ const FilmList = props => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const _films = await  services.film.list();
+			const _films = await services.film.list();
 			setFilms(_films);
 		};
 		fetchData();

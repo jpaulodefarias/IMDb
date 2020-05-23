@@ -13,6 +13,15 @@ const list = async () => {
 	return films;
 };
 
+const add = async film => {
+	try {
+		await api.film.add(film);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 export default {
-	list
+	list,
+	add
 };
