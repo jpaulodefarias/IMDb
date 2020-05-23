@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
-import FilmList from "./components/FilmList";
+import Home from "./components/Home";
 
 const App = props => {
 	return <Fragment>
@@ -11,9 +11,7 @@ const App = props => {
 				<button className="uk-button uk-button-default">Button</button>
 			</div>
 		</div>
-		<div className="uk-light uk-background-secondary uk-padding">
-			<FilmList />
-		</div>
+		<Home />
 	</Fragment>;
 };
 

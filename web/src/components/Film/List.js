@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import services from "../../services";
 
-const FilmList = props => {
+const List = props => {
 	const [films, setFilms] = useState([]);
 
 	useEffect(() => {
@@ -23,4 +23,4 @@ const FilmList = props => {
 	);
 };
 
-export default FilmList;
+export default List;
