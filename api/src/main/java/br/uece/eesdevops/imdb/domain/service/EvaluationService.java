@@ -1,5 +1,6 @@
 package br.uece.eesdevops.imdb.domain.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -35,5 +36,9 @@ public class EvaluationService {
 			throw new FilmNotFoundException(id);
 		}
 
+	}
+
+	public List<Evaluation> getAll() {
+		return this.evaluationRepository.findAll();
 	}
 }
