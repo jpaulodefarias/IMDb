@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
 
@@ -15,8 +15,8 @@ public class Evaluation {
     @Id
     @GeneratedValue
     private int id;
-    
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
@@ -36,7 +36,7 @@ public class Evaluation {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public Film getFilm() {
         return film;
     }
@@ -68,5 +68,5 @@ public class Evaluation {
     public void setScore(Integer score) {
         this.score = score;
     }
- 
+
 }

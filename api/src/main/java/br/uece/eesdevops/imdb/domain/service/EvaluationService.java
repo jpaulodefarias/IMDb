@@ -16,28 +16,23 @@ import br.uece.eesdevops.imdb.repository.FilmRepository;
 public class EvaluationService {
 
     private final EvaluationRepository evaluationRepository;
-    private final FilmRepository filmRepository;
+    //private final FilmRepository filmRepository;
 
-    public EvaluationService(final EvaluationRepository evaluationRepository, final FilmRepository filmRepository) {
+    public EvaluationService(EvaluationRepository evaluationRepository) {
         this.evaluationRepository = evaluationRepository;
-        this.filmRepository = filmRepository;
+        //this.filmRepository = filmRepository;
     }
 
     @Transactional
     public Evaluation execute(Evaluation evaluation) {
-        System.out.println("O valor de film é " + evaluation.getId());
-        System.out.println("O valor de film é " + evaluation.getFilm().getTitle());
-        requireFilm(evaluation);
-
-        Film film = getFilmOrThrow(evaluation.getFilm().getId());
-
-        evaluation.setFilm(film);
-
+        //System.out.println("O valor do id do film é " + evaluation.getFilm().getId());
+        //System.out.println("O valor do titulo do film é " + evaluation.getFilm().getTitle());
         return evaluationRepository.save(evaluation);
     }
 
-    private void requireFilm(Evaluation evaluation) {
-        if (evaluation.getFilm() == null || evaluation.getFilm().getId() == null) {
+    /*private void requireFilm(Evaluation evaluation) {
+        if (evaluation.getFilm() == null ) {
+			//|| evaluation.getFilm().getId() == null) {
             throw new FilmInvalidException("Film ID is null");
         }
     }
@@ -49,5 +44,5 @@ public class EvaluationService {
         } else {
             throw new FilmNotFoundException(filmId);
         }
-    }
+    }*/
 }
