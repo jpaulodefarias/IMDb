@@ -4,8 +4,8 @@ import logo from "../../resources/images/logo.png"
 
 const Menu = props => (
 	<nav className="uk-navbar-container uk-navbar uk-navbar-transparent uk-light">
-		<div class="uk-navbar-left">
-			<ul class="uk-navbar-nav">
+		<div className="uk-navbar-left">
+			<ul className="uk-navbar-nav">
 				<li>
 					<NavLink to="/">
 						<img src={logo} alt="IMDb" width="100" draggable="false" />
@@ -13,7 +13,13 @@ const Menu = props => (
 				</li>
 			</ul>
 		</div>
-		<div class="uk-navbar-right"></div>
+		<div className="uk-navbar-right">
+			{/* <ul className="uk-navbar-nav">
+				<li>
+					<button className="uk-button uk-button-default">Add Film</button>
+				</li>
+			</ul> */}
+		</div>
 	</nav>
 );
 
