@@ -37,7 +37,7 @@ public class EvaluationService {
     }
 
     private void requireFilm(Evaluation evaluation) {
-        if (evaluation.getFilm() == null || evaluation.getFilm().getId() == null) {
+        if (evaluation.getFilm() == null || evaluation.getFilm().getId() == 0) {
             throw new FilmInvalidException("Film ID is null");
         }
     }
