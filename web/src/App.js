@@ -13,6 +13,9 @@ const App = props => (
 			<Route exact path="/">
 				<Pages.Home />
 			</Route>
+			<Route exact path="/film/form">
+				<Pages.Film.Form />
+			</Route>
 		</Switch>
 	</BrowserRouter>
 );

@@ -14,11 +14,13 @@ const Menu = props => (
 			</ul>
 		</div>
 		<div className="uk-navbar-right">
-			{/* <ul className="uk-navbar-nav">
+			<ul className="uk-navbar-nav">
 				<li>
-					<button className="uk-button uk-button-default">Add Film</button>
+					<NavLink to="/film/form">
+						<span className="uk-button uk-button-default uk-margin-small-right">Add New Film</span>
+					</NavLink>
 				</li>
-			</ul> */}
+			</ul>
 		</div>
 	</nav>
 );
