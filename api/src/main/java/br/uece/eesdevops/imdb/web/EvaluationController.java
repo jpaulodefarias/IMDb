@@ -17,22 +17,16 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/evaluation")
 public class EvaluationController {
 
-    private final EvaluationService evaluationService;
+	private final EvaluationService evaluationService;
 
-    public EvaluationController(EvaluationService evaluationService) {
-        this.evaluationService = evaluationService;
-    }
-    
-    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Evaluation> save(@RequestBody NewEvaluation request) {
-        final Evaluation saved = evaluationService.execute(request.toDomain());
-        System.out.println("O valor de film é " + request.toDomain().getId());
-        System.out.println("O valor de film é " + request.toDomain().getFilm().getId());
-        System.out.println("O valor de film é " + request.toDomain().getComment());
-        System.out.println("O valor de film é " + request.toDomain().getScore());
+	public EvaluationController(EvaluationService evaluationService) {
+		this.evaluationService = evaluationService;
+	}
 
-        return ResponseEntity
-        .status(HttpStatus.CREATED)
-        .body(saved);
-    }
+	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Evaluation> save(@RequestBody NewEvaluation request) {
+		final Evaluation saved = evaluationService.execute(request.toDomain());
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+	}
 }

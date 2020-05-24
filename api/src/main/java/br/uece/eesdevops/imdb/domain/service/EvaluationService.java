@@ -1,25 +1,39 @@
 package br.uece.eesdevops.imdb.domain.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.uece.eesdevops.imdb.domain.entity.Evaluation;
+import br.uece.eesdevops.imdb.domain.entity.Film;
+import br.uece.eesdevops.imdb.domain.exception.FilmNotFoundException;
 import br.uece.eesdevops.imdb.repository.EvaluationRepository;
-
+import br.uece.eesdevops.imdb.repository.FilmRepository;
 
 @Service
 public class EvaluationService {
 
 	private final EvaluationRepository evaluationRepository;
+	private FilmRepository filmRepository;
 
-    public EvaluationService(EvaluationRepository evaluationRepository) {
-        this.evaluationRepository = evaluationRepository;
-    }
+	public EvaluationService(EvaluationRepository evaluationRepository, FilmRepository filmRepository) {
+		this.evaluationRepository = evaluationRepository;
+		this.filmRepository = filmRepository;
+	}
 
-    @Transactional
-    public Evaluation execute(Evaluation evaluation) {
-        //System.out.println("O valor do id do film é " + evaluation.getFilm().getId());
-        //System.out.println("O valor do titulo do film é " + evaluation.getFilm().getTitle());
-        return evaluationRepository.save(evaluation);
-    }
+	@Transactional
+	public Evaluation execute(Evaluation evaluation) {
+		int id = evaluation.getFilm().getId();
+		Optional<Film> optional = filmRepository.findById(id);
+
+		if (optional.isPresent()) {
+			Film film = optional.get();
+			filmRepository.save(film);
+			return evaluationRepository.save(evaluation);
+		} else {
+			throw new FilmNotFoundException(id);
+		}
+
+	}
 }
