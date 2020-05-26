@@ -5,24 +5,54 @@ import br.uece.eesdevops.imdb.domain.entity.Film;
 
 public class NewEvaluation {
 
-    private int film;
+	private int filmId;
+	private int score;
+	private String comment;
+	private String evaluator;
 
-    public int getFilm() {
-        return film;
-    }
+	public int getFilmId() {
+		return filmId;
+	}
 
-    public void setFilm(int film) {
-        this.film = film;
-    }
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
+	}
 
-    public Evaluation toDomain() {
-        Film film = new Film();
-		film.setId(this.film);
+	public void setScore(int score) {
+		this.score = score;
+	}
 
-        Evaluation evaluation = new Evaluation();
-        evaluation.setFilm(film);
+	public int getScore() {
+		return score;
+	}
 
-        return evaluation;
-    }
+	public String getEvaluator() {
+		return evaluator;
+	}
+
+	public void setEvaluator(String evaluator) {
+		this.evaluator = evaluator;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public Evaluation toDomain() {
+		Film film = new Film();
+		film.setId(this.filmId);
+
+		Evaluation evaluation = new Evaluation();
+		evaluation.setFilm(film);
+		evaluation.setScore(score);
+		evaluation.setComment(comment);
+		evaluation.setEvaluator(evaluator);
+
+		return evaluation;
+	}
 
 }

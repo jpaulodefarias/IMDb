@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
 
@@ -12,61 +12,61 @@ import javax.persistence.Column;
 @Table(name = "evaluation")
 public class Evaluation {
 
-    @Id
-    @GeneratedValue
-    private int id;
-    
-    @OneToOne
-    @JoinColumn(name = "film_id", nullable = false)
-    private Film film;
+	@Id
+	@GeneratedValue
+	private int id;
 
-    @Column(nullable = false)
-    private String evaluator;
+	@ManyToOne
+	@JoinColumn(name = "film_id", nullable = false)
+	private Film film;
 
-    @Column(nullable = true)
-    private String comment;
+	@Column(nullable = false)
+	private String evaluator;
 
-    @Column(nullable = false)
-    private int score;
+	@Column(nullable = true)
+	private String comment;
 
-    public Integer getId() {
-        return id;
-    }
+	@Column(nullable = false)
+	private int score;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
-    public Film getFilm() {
-        return film;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setFilm(Film film) {
-        this.film = film;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getEvaluator() {
-        return evaluator;
-    }
+	public Film getFilm() {
+		return film;
+	}
 
-    public void setEvaluator(String evaluator) {
-        this.evaluator = evaluator;
-    }
+	public void setFilm(Film film) {
+		this.film = film;
+	}
 
-    public String getComment() {
-        return comment;
-    }
+	public String getEvaluator() {
+		return evaluator;
+	}
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+	public void setEvaluator(String evaluator) {
+		this.evaluator = evaluator;
+	}
 
-    public Integer getScore() {
-        return score;
-    }
+	public String getComment() {
+		return comment;
+	}
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
- 
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+
 }

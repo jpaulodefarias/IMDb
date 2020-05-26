@@ -2,6 +2,7 @@ package br.uece.eesdevops.imdb.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,26 +14,29 @@ import br.uece.eesdevops.imdb.web.Entity.NewEvaluation;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/evaluation")
 public class EvaluationController {
 
-    private final EvaluationService evaluationService;
+	private final EvaluationService evaluationService;
 
-    public EvaluationController(EvaluationService evaluationService) {
-        this.evaluationService = evaluationService;
-    }
-    
-    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Evaluation> save(@RequestBody NewEvaluation request) {
-        final Evaluation saved = evaluationService.execute(request.toDomain());
-        System.out.println("O valor de film é " + request.toDomain().getId());
-        System.out.println("O valor de film é " + request.toDomain().getFilm().getId());
-        System.out.println("O valor de film é " + request.toDomain().getComment());
-        System.out.println("O valor de film é " + request.toDomain().getScore());
+	public EvaluationController(EvaluationService evaluationService) {
+		this.evaluationService = evaluationService;
+	}
 
-        return ResponseEntity
-        .status(HttpStatus.CREATED)
-        .body(saved);
-    }
+	@GetMapping(produces = APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Evaluation>> getAll() {
+		List<Evaluation> evaluations = evaluationService.getAll();
+		return ResponseEntity.ok(evaluations);
+
+	}
+
+	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	public ResponseEntity<Evaluation> save(@RequestBody NewEvaluation request) {
+		final Evaluation saved = evaluationService.execute(request.toDomain());
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+	}
 }
