@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 @ResponseStatus(HttpStatus.CONFLICT)
-public class FilmInvalidException extends RuntimeException{
-    
+public class FilmEmptyException extends RuntimeException{
+
     /**
      *
      */
     private static final long serialVersionUID = 1L;
 
-    public FilmInvalidException(String message) {
+    public FilmEmptyException(String message) {
         super(message);
     }
-    
+
 }
