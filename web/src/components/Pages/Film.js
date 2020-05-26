@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import services from "../../services";
 
 const Form = props => {
-	const submit = e => {
+	const [title, setTitle] = useState("");
+	const [synopsis, setSynopsis] = useState("");
+	const [year, setYear] = useState("");
+	const [producers, setProducers] = useState("");
+	const [actors, setActors] = useState("");
+	// const [poster, setPoster] = useState("");
+
+	const history = useHistory();
+
+	const submit = async e => {
 		e.preventDefault();
-		console.log("submit");
+
+		const film = {
+			title,
+			synopsis,
+			year,
+			producers,
+			actors,
+			// poster
+		};
+
+		await services.film.add(film);
+
+		history.push("/");
 	};
 
 	return (
@@ -13,31 +36,41 @@ const Form = props => {
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="film-title">Title</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="film-title" type="text" />
+						<input className="uk-input" id="film-title" type="text"
+							onChange={e => setTitle(e.target.value)}
+						/>
 					</div>
 				</div>
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="film-synopsis">Synopsis</label>
 					<div className="uk-form-controls">
-						<textarea className="uk-textarea" id="film-synopsis" type="text" />
+						<textarea className="uk-textarea" id="film-synopsis" type="text"
+							onChange={e => setSynopsis(e.target.value)}
+						/>
 					</div>
 				</div>
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="film-year">Year</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="film-year" type="text" />
+						<input className="uk-input" id="film-year" type="text"
+							onChange={e => setYear(e.target.value)}
+						/>
 					</div>
 				</div>
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="film-producers">Producers</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="film-producers" type="text" />
+						<input className="uk-input" id="film-producers" type="text"
+							onChange={e => setProducers(e.target.value)}
+						/>
 					</div>
 				</div>
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="film-actors">Actors</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="film-actors" type="text" />
+						<input className="uk-input" id="film-actors" type="text"
+							onChange={e => setActors(e.target.value)}
+						/>
 					</div>
 				</div>
 				<input type="submit" className="uk-button uk-button-default" value="Save" />
