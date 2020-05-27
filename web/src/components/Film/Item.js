@@ -5,8 +5,8 @@ const Item = props => {
 
 	return (
 
-		<div class="uk-section uk-section-xsmall uk-section-secondary uk-light">
-			<div class="uk-container">
+		<div className="uk-section uk-section-xsmall uk-section-secondary uk-light">
+			<div className="uk-container">
 				<h3>{film.title}</h3>
 				<p>Score: {film.score}</p>
 				<p>Year: {film.year}</p>
