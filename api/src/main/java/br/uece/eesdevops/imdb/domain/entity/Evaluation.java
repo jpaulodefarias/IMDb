@@ -1,11 +1,16 @@
 package br.uece.eesdevops.imdb.domain.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
@@ -16,7 +21,8 @@ public class Evaluation {
 	@GeneratedValue
 	private int id;
 
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@JsonIgnore
 	@JoinColumn(name = "film_id", nullable = false)
 	private Film film;
 
