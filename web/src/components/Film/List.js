@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import services from "../../services";
+import Item from "./Item";
 
 const List = props => {
 	const [films, setFilms] = useState([]);
@@ -13,13 +14,11 @@ const List = props => {
 	}, []);
 
 	return (
-		<ul>
-			{films.map(item => (
-				<li key={item.id}>
-					{item.title}
-				</li>
+		<div>
+			{films.map(film => (
+				<Item key={film.id} film={film} />
 			))}
-		</ul>
+		</div>
 	);
 };
 
