@@ -38,11 +38,11 @@ public class Film {
 	@Column(nullable = true)
 	private String poster;
 
-	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
-	private List<Evaluation> evaluations;
-
 	@Transient
 	private Double score;
+
+	@OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+	private List<Evaluation> evaluations;
 
 	public int getId() {
 		return id;
