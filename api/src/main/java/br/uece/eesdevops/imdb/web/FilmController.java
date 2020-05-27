@@ -29,7 +29,7 @@ public class FilmController {
     public ResponseEntity<List<Film>> getAll() {
         List<Film> films = filmService.getAll();
         return ResponseEntity.ok(films);
-    }
+	}
 
 	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<Film> save(@RequestBody Film film) {

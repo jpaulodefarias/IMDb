@@ -12,6 +12,6 @@ public class ScoreEvaluationException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public ScoreEvaluationException(Integer score) {
-		super("Score" + score + "invalid. The value must be between 0 and 5")
+		super("Score" + score + "invalid. The value must be between 0 and 5");
 	}
 }

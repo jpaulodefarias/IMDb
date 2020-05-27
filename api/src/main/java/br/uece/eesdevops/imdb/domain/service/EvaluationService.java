@@ -43,16 +43,16 @@ public class EvaluationService {
 	}
 
 	public void checkScore(Evaluation evaluation) {
-		if (evaluation.getScore() <= 0 && evaluation.getScore() >= 5) {
+		if (evaluation.getScore() < 0 || evaluation.getScore() > 5) {
 			throw new ScoreEvaluationException(evaluation.getScore());
 		}
-		if(evaluation.getScore() == null) {
+		if (evaluation.getScore() == null) {
 			throw new EvaluationEmptyException("The score is empty or null. Please set of value");
 		}
 	}
 
 	public void requiredEvaluator(Evaluation evaluation) {
-		if(evaluation.getEvaluator() == null || evaluation.getEvaluator().isEmpty()) {
+		if (evaluation.getEvaluator() == null || evaluation.getEvaluator().isEmpty()) {
 			throw new EvaluationEmptyException("The evaluator is null or empty. Please set of value");
 		}
 	}
