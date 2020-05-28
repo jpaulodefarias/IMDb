@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Item = props => {
 	const { film } = props;
@@ -13,8 +14,14 @@ const Item = props => {
 				<p>Producers: {film.producers}</p>
 				<p>Synopsis: {film.synopsis}</p>
 
+				<Link
+					className="uk-button uk-button-default"
+					to={`/evaluation/${film.id}`}>
+					Add New Review
+				</Link>
+
 				{film.evaluations.map(e => (
-					<Comment evaluation={e} />
+					<Comment key={e.id} evaluation={e} />
 				))}
 
 				<hr />

@@ -12,7 +12,6 @@ const Home = props => {
 			</p>
 			<Film.List />
 		</div>
-
 	);
 };
 

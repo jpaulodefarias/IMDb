@@ -16,6 +16,9 @@ const App = props => (
 			<Route exact path="/film/form">
 				<Pages.Film.Form />
 			</Route>
+			<Route exact path="/evaluation/:filmId">
+				<Pages.Evaluation />
+			</Route>
 		</Switch>
 	</BrowserRouter>
 );
