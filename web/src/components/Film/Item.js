@@ -4,7 +4,6 @@ const Item = props => {
 	const { film } = props;
 
 	return (
-
 		<div className="uk-section uk-section-xsmall uk-section-secondary uk-light">
 			<div className="uk-container">
 				<h3>{film.title}</h3>
