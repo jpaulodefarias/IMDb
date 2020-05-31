@@ -32,6 +32,10 @@ const Form = props => {
 		}
 	};
 
+	const cancel = () => {
+		history.push("/");
+	};
+
 	return (
 		<div className="uk-light uk-background-secondary uk-padding">
 			<h2>Film</h2>
@@ -77,6 +81,11 @@ const Form = props => {
 					</div>
 				</div>
 				<input type="submit" className="uk-button uk-button-default" value="Save" />
+				<input type="button"
+					className="uk-button uk-button-default uk-margin-small-left"
+					value="Cancel"
+					onClick={cancel}
+				/>
 			</form>
 		</div>
 	);
