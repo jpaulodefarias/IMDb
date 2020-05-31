@@ -24,9 +24,12 @@ const Form = props => {
 			// poster
 		};
 
-		await services.film.add(film);
-
-		history.push("/");
+		try {
+			await services.film.add(film);
+			history.push("/");
+		} catch (error) {
+			alert("Check required fields");
+		}
 	};
 
 	return (

@@ -14,11 +14,7 @@ const list = async () => {
 };
 
 const add = async evaluation => {
-	try {
-		await api.evaluation.add(evaluation);
-	} catch (error) {
-		console.error(error);
-	}
+	await api.evaluation.add(evaluation);
 };
 
 export default {

@@ -5,8 +5,6 @@ import services from "../../services";
 const Evaluation = () => {
 	const { filmId } = useParams();
 
-	console.log(filmId);
-
 	const [evaluator, setEvaluator] = useState("");
 	const [score, setScore] = useState("");
 	const [comment, setComment] = useState("");
@@ -23,9 +21,12 @@ const Evaluation = () => {
 			comment
 		};
 
-		await services.evaluation.add(evaluation);
-
-		history.push("/");
+		try {
+			await services.evaluation.add(evaluation);
+			history.push("/");
+		} catch (error) {
+			alert("Check required fields")
+		}
 	};
 
 	return (

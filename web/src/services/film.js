@@ -14,11 +14,7 @@ const list = async () => {
 };
 
 const add = async film => {
-	try {
-		await api.film.add(film);
-	} catch (error) {
-		console.error(error);
-	}
+	await api.film.add(film);
 };
 
 export default {
