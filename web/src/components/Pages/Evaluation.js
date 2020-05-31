@@ -40,7 +40,7 @@ const Evaluation = () => {
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="evaluation-evaluator">Your Name</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="evaluation-evaluator" type="text"
+						<input className="uk-input" id="evaluation-evaluator" type="text" required="required"
 							onChange={e => setEvaluator(e.target.value)}
 						/>
 					</div>
@@ -48,7 +48,8 @@ const Evaluation = () => {
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="evaluation-score">Score</label>
 					<div className="uk-form-controls">
-						<input className="uk-input" id="evaluation-score" type="text"
+						<input className="uk-input" id="evaluation-score" type="number" required="required"
+							min="0" max="5"
 							onChange={e => setScore(e.target.value)}
 						/>
 					</div>
@@ -56,7 +57,7 @@ const Evaluation = () => {
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="evaluation-comment">Comment</label>
 					<div className="uk-form-controls">
-						<textarea className="uk-textarea" id="evaluation-comment" type="text"
+						<textarea className="uk-textarea" id="evaluation-comment" type="text" required="required"
 							onChange={e => setComment(e.target.value)}
 						/>
 					</div>
