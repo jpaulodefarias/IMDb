@@ -25,9 +25,10 @@ const List = props => {
 
 	return (
 		<div>
-			{films.map(film => (
+			{films.length > 0 ? films.map(film => (
 				<Item key={film.id} film={film} />
-			))}
+			)) :
+			"There's nothing here yet"}
 		</div>
 	);
 };
@@ -58,9 +59,10 @@ const Item = props => {
 							<span className="uk-button uk-button-text">Add New Review</span>
 						</Link>
 					</div>
-					{film.evaluations.map(e => (
+					{film.evaluations.length > 0 ? film.evaluations.map(e => (
 						<Comment key={e.id} evaluation={e} />
-					))}
+					)) :
+					"There's nothing here yet"}
 				</div>
 			</div>
 			<hr />
