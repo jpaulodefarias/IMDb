@@ -13,7 +13,7 @@ const App = props => (
 			<Route exact path="/">
 				<Pages.Home />
 			</Route>
-			<Route exact path="/film/form">
+			<Route exact path="/film/new">
 				<Pages.Film.Form />
 			</Route>
 			<Route exact path="/evaluation/:filmId">

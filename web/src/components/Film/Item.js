@@ -14,10 +14,8 @@ const Item = props => {
 				<p>Producers: {film.producers}</p>
 				<p>Synopsis: {film.synopsis}</p>
 
-				<Link
-					className="uk-button uk-button-default"
-					to={`/evaluation/${film.id}`}>
-					Add New Review
+				<Link to={`/evaluation/${film.id}`}>
+					<span className="uk-button uk-button-default">Add New Review</span>
 				</Link>
 
 				{film.evaluations.map(e => (
