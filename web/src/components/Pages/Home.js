@@ -7,12 +7,12 @@ const Home = props => {
 	return (
 		<div className="uk-light uk-background-secondary uk-padding">
 			<h2>Films</h2>
-			<List />
+			<Films />
 		</div>
 	);
 };
 
-const List = props => {
+const Films = props => {
 	const [films, setFilms] = useState([]);
 
 	useEffect(() => {
@@ -26,14 +26,14 @@ const List = props => {
 	return (
 		<div>
 			{films.length > 0 ? films.map(film => (
-				<Item key={film.id} film={film} />
+				<Film key={film.id} film={film} />
 			)) :
 			"There's nothing here yet"}
 		</div>
 	);
 };
 
-const Item = props => {
+const Film = props => {
 	const { film } = props;
 
 	return (
