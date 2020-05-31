@@ -16,7 +16,7 @@ const Menu = props => (
 		<div className="uk-navbar-right">
 			<ul className="uk-navbar-nav">
 				<li>
-					<Link to="/film/new">
+					<Link to="/film">
 						<span className="uk-button uk-button-default uk-margin-small-right">Add New Film</span>
 					</Link>
 				</li>
