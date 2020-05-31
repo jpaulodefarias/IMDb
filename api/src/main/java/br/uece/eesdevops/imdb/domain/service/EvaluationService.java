@@ -26,7 +26,7 @@ public class EvaluationService {
 	}
 
 	@Transactional
-	public Evaluation execute(Evaluation evaluation) {
+	public Evaluation save(Evaluation evaluation) {
 		int id = evaluation.getFilm().getId();
 		Optional<Film> optional = filmRepository.findById(id);
 

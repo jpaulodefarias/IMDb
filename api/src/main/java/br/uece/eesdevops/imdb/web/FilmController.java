@@ -26,14 +26,14 @@ public class FilmController {
 	}
 
 	@GetMapping(produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Film>> getAll() {
-        List<Film> films = filmService.getAll();
-        return ResponseEntity.ok(films);
+	public ResponseEntity<List<Film>> getAll() {
+		List<Film> films = filmService.getAll();
+		return ResponseEntity.ok(films);
 	}
 
 	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<Film> save(@RequestBody Film film) {
-		Film saved = filmService.execute(film);
+		Film saved = filmService.save(film);
 		return ResponseEntity.status(HttpStatus.CREATED).body(saved);
 	}
 

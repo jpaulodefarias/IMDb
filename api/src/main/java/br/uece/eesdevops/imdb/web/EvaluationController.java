@@ -35,7 +35,7 @@ public class EvaluationController {
 
 	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseEntity<Evaluation> save(@RequestBody NewEvaluation request) {
-		final Evaluation saved = evaluationService.execute(request.toDomain());
+		final Evaluation saved = evaluationService.save(request.toDomain());
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(saved);
 	}

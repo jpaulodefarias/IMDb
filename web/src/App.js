@@ -13,8 +13,11 @@ const App = props => (
 			<Route exact path="/">
 				<Pages.Home />
 			</Route>
-			<Route exact path="/film/form">
+			<Route exact path="/film">
 				<Pages.Film.Form />
+			</Route>
+			<Route exact path="/evaluation/:filmId">
+				<Pages.Evaluation />
 			</Route>
 		</Switch>
 	</BrowserRouter>
