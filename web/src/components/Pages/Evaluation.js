@@ -57,7 +57,7 @@ const Evaluation = () => {
 				<div className="uk-margin uk-width-1-2@m">
 					<label htmlFor="evaluation-comment">Comment</label>
 					<div className="uk-form-controls">
-						<textarea className="uk-textarea" id="evaluation-comment" type="text" required="required"
+						<textarea className="uk-textarea" id="evaluation-comment" type="text"
 							onChange={e => setComment(e.target.value)}
 						/>
 					</div>
