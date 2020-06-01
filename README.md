@@ -1,6 +1,6 @@
 # IMDb
 
-This project has two parts:
+This project has two parts, for details on running each project check the links below:
 
 ### API
 
