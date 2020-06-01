@@ -28,7 +28,7 @@ const Films = props => {
 			{films.length > 0 ? films.map(film => (
 				<Film key={film.id} film={film} />
 			)) :
-			"There's nothing here yet"}
+				"There's nothing here yet"}
 		</div>
 	);
 };
@@ -62,7 +62,7 @@ const Film = props => {
 					{film.evaluations.length > 0 ? film.evaluations.map(e => (
 						<Comment key={e.id} evaluation={e} />
 					)) :
-					"There's nothing here yet"}
+						"There's nothing here yet"}
 				</div>
 			</div>
 			<hr />
@@ -79,7 +79,9 @@ const Comment = props => {
 				<li><span role="img" aria-label="Score">&#11088; {evaluation.score}</span></li>
 				<li>{evaluation.evaluator}</li>
 			</ul>
-			<p className="uk-comment-meta uk-margin-remove-top">"{evaluation.comment}"</p>
+			<p className="uk-comment-meta uk-margin-remove-top">
+				{evaluation.comment ? `"${evaluation.comment}"` : ""}
+			</p>
 		</div>
 	);
 };
